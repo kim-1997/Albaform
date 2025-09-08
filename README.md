@@ -1,5 +1,5 @@
 # Epigram 📝  
-Next.js (App Router) 기반 커뮤니티 플랫폼
+Next.js (App Router) 기반 아르바이트 플랫폼
 
 ## ✨ 사용 기술
 - Next.js 14 (App Router)
@@ -13,6 +13,7 @@ Next.js (App Router) 기반 커뮤니티 플랫폼
 - 회원가입, 로그인, 로그아웃
 - 글 작성, 수정, 삭제
 - SSR, CSR, SSG 페이지 구조 설계
+- 관리자(사장), 게스트(지원자) 분리
 - 전역 상태 관리
 - 무한 스크롤
 
