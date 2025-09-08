@@ -1,4 +1,4 @@
-# Epigram 📝  
+# Albaform 📝  
 Next.js (App Router) 기반 아르바이트 플랫폼
 
 ## ✨ 사용 기술
