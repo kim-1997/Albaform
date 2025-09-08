@@ -1,0 +1,18 @@
+.btn {
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #f89a05;
+    margin-top: 90px;
+}
+.btn:disabled {
+    background-color: #dedede;
+    cursor: not-allowed;
+}
+.btnText {
+    line-height: 72px;
+    font-size: 20px;
+}
