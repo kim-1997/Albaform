@@ -1,13 +1,13 @@
 import { create } from "zustand";
 
-export type UserRole = "owner" | "applicant";
+type Role = "APPLICANT" | "OWNER";
 
 type RoleStore = {
-    role: UserRole;
-    setRole: (newRole: UserRole) => void;
+    role: Role;
+    setRole: (role: Role) => void;
 };
 
 export const useRoleStore = create<RoleStore>((set) => ({
-    role: "applicant",
-    setRole: (newRole) => set({ role: newRole }),
+    role: "APPLICANT",
+    setRole: (role) => set({ role }),
 }));

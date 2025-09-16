@@ -7,3 +7,42 @@
     z-index: 10;
     background-color: #fff;
 }
+.inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 1720px;
+    padding: 0 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+.buttonBox {
+    display: flex;
+    column-gap: 10px;
+}
+.buttonBox button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 20px;
+    color: #ccc;
+    cursor: pointer;
+    font-weight: 500;
+}
+.buttonBox button.active {
+    color: #f89a05;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.logout {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}

@@ -40,14 +40,7 @@ export default function Input({
     return (
         <div className={styles.inputBox}>
             {hasLabel && <label htmlFor={id}>{labelText}</label>}
-            <input
-                type={type}
-                id={id}
-                name={name}
-                placeholder={placeholder}
-                onChange={onChange}
-                value={value}
-            />
+            <input type={type} id={id} name={name} placeholder={placeholder} onChange={onChange} value={value} />
         </div>
     );
 }

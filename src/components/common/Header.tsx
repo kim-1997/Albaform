@@ -1,25 +1,58 @@
 "use client";
-import { useRoleStore } from "@/stores/roleStore";
+import { usePathname, useRouter } from "next/navigation";
 import styles from "./Header.module.css";
+import { useRoleStore } from "@/stores/roleStore";
+import { useUserStore } from "@/stores/useUserStore";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
     const { role, setRole } = useRoleStore();
+    const router = useRouter();
+    const pathname = usePathname();
+    const { user, logout } = useUserStore();
 
+    const handleClick = (newRole: "APPLICANT" | "OWNER") => {
+        setRole(newRole);
+
+        if (pathname.startsWith("/signup")) {
+            router.push(newRole === "APPLICANT" ? "/signup/applicant" : "/signup/owner");
+        } else if (pathname.startsWith("/signin")) {
+            router.push(newRole === "APPLICANT" ? "/signin/applicant" : "/signin/owner");
+        }
+    };
     return (
         <div className={styles.header}>
-            <button
-                onClick={() => setRole("owner")}
-                disabled={role === "owner"}
-            >
-                사장님
-            </button>
-
-            <button
-                onClick={() => setRole("applicant")}
-                disabled={role === "applicant"}
-            >
-                지원자
-            </button>
+            <div className={styles.inner}>
+                <Link href={"/"}>
+                    <Image src={"/images/logo.png"} width={284} height={40} alt="로고" />
+                </Link>
+                {pathname.startsWith("/signup") || pathname.startsWith("/signin") ? (
+                    <div className={styles.buttonBox}>
+                        <button
+                            onClick={() => handleClick("APPLICANT")}
+                            className={role === "APPLICANT" ? `${styles.active}` : ""}
+                        >
+                            지원자 전용
+                        </button>
+                        <button
+                            onClick={() => handleClick("OWNER")}
+                            className={role === "OWNER" ? `${styles.active}` : ""}
+                        >
+                            사장님 전용
+                        </button>
+                    </div>
+                ) : user ? (
+                    <div className={styles.userInfo}>
+                        <div>{role === "APPLICANT" ? `${user.nickname} 지원자님` : `${user.nickname} 사장님`}</div>
+                        <div onClick={logout} className={styles.logout}>
+                            로그아웃
+                        </div>
+                    </div>
+                ) : (
+                    <a href="/signin/applicant">로그인</a>
+                )}
+            </div>
         </div>
     );
 }

@@ -1,0 +1,34 @@
+.wrap {
+    height: calc(100vh - 88px);
+    margin-top: 88px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.login {
+    text-align: center;
+}
+.title {
+    font-size: 32px;
+}
+.info {
+    margin-top: 32px;
+}
+.info p {
+    font-size: 20px;
+}
+.info p + p {
+    margin-top: 5px;
+}
+.signupLink {
+    margin-left: 5px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.form {
+    max-width: 640px;
+    width: 100%;
+    margin: 64px auto 0 auto;
+}
