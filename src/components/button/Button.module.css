@@ -6,7 +6,7 @@
     cursor: pointer;
     border-radius: 8px;
     background-color: #f89a05;
-    margin-top: 90px;
+    margin-top: 50px;
 }
 .btn:disabled {
     background-color: #dedede;

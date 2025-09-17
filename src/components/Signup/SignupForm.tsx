@@ -2,12 +2,17 @@
 import Link from "next/link";
 import Button from "../button/Button";
 import styles from "./SignupForm.module.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Input from "../input/Input";
 import { SignUp, SignupFormProps } from "@/lib/types/signup";
+import Image from "next/image";
+import { useUploadImage } from "@/lib/api/upload";
 
 export default function SignupForm({ onSubmit, role }: SignupFormProps) {
     const [step, setStep] = useState<"account" | "details">("account");
+    const [profileUrl, setProfileUrl] = useState("/images/profile.png");
+    const { mutate: uploadImage, isPending } = useUploadImage();
+    const fileInputRef = useRef<HTMLInputElement>(null);
     const [form, setForm] = useState<SignUp & { passwordConfirm: string }>({
         email: "",
         password: "",
@@ -29,6 +34,24 @@ export default function SignupForm({ onSubmit, role }: SignupFormProps) {
     const handleNext = () => {
         if (!form.email || !form.password) return alert("이메일/비밀번호를 입력하세요");
         setStep("details");
+    };
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        uploadImage(file, {
+            onSuccess: (data) => {
+                setProfileUrl(data.url); // 성공 시 이미지 교체
+            },
+            onError: (error) => {
+                console.error("업로드 실패:", error);
+            },
+        });
+    };
+
+    const handleProfileClick = () => {
+        fileInputRef.current?.click();
     };
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -77,7 +100,27 @@ export default function SignupForm({ onSubmit, role }: SignupFormProps) {
                         </p>
                     )}
                     {(role === "OWNER" || role === "APPLICANT") && step === "details" && (
-                        <p className={styles.signup}>추가 정보를 입력하여 회원가입을 완료해주세요.</p>
+                        <>
+                            <p className={styles.signup}>추가 정보를 입력하여 회원가입을 완료해주세요.</p>
+                            <div className={styles.profile} onClick={handleProfileClick}>
+                                <Image
+                                    src={encodeURI(profileUrl)}
+                                    width={120}
+                                    height={120}
+                                    style={{ width: "100%", height: "100%", borderRadius: "50%" }}
+                                    alt="프로필"
+                                    unoptimized
+                                />
+                                {isPending ? <div className={styles.dim}>업로드 중...</div> : ""}
+                            </div>
+                            <input
+                                ref={fileInputRef}
+                                type="file"
+                                accept="image/*"
+                                style={{ display: "none" }}
+                                onChange={handleFileChange}
+                            />
+                        </>
                     )}
 
                     <p className={styles.roleNotice}>
