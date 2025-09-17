@@ -4,10 +4,10 @@ export type SignUp = {
     name: string;
     nickname: string;
     role: "OWNER" | "APPLICANT";
-    storeName?: string;
-    storePhoneNumber?: string;
-    phoneNumber?: string;
-    location?: string;
+    storeName?: string | undefined;
+    storePhoneNumber?: string | undefined;
+    phoneNumber?: string | undefined;
+    location?: string | undefined;
 };
 export type SignupFormProps = {
     onSubmit: (form: SignUp, role: "OWNER" | "APPLICANT") => void;

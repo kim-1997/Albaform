@@ -5,6 +5,7 @@ type ButtonType = {
     type?: "button" | "submit" | "reset";
     disabled?: boolean;
     isPending?: boolean;
+    onClick?: () => void;
 };
 
 export default function Button({
@@ -12,16 +13,11 @@ export default function Button({
     type = "submit",
     disabled = false,
     isPending = false,
+    onClick,
 }: ButtonType) {
     return (
-        <button
-            type={type}
-            className={styles.btn}
-            disabled={disabled || isPending}
-        >
-            <span className={styles.btnText}>
-                {isPending ? "로그인 중..." : text}
-            </span>
+        <button type={type} className={styles.btn} disabled={disabled || isPending} onClick={onClick}>
+            <span className={styles.btnText}>{isPending ? "로그인 중..." : text}</span>
         </button>
     );
 }

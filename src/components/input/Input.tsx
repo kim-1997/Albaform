@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import styles from "./Input.module.css";
 
 type InputWithLabel = {
@@ -10,7 +9,7 @@ type InputWithLabel = {
     name: string;
     id: string;
     type: string;
-    value: string;
+    value: string | undefined;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -21,7 +20,7 @@ type InputWithoutLabel = {
     name: string;
     id?: string;
     type: string;
-    value: string;
+    value: string | undefined;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
