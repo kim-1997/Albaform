@@ -41,17 +41,35 @@ export default function LandingPage() {
                     </section>
                     <section className={styles.seciton}>
                         <div className={styles.imagewrap}>
-                            <Image src={"/images/section02.jpg"} width={1140} height={640} alt="seciton02" />
+                            <Image
+                                src={"/images/section02.jpg"}
+                                width={1140}
+                                height={640}
+                                style={{ width: "100%", height: "auto" }}
+                                alt="seciton02"
+                            />
                         </div>
                     </section>
                     <section className={styles.seciton}>
                         <div className={styles.imagewrap}>
-                            <Image src={"/images/section03.jpg"} width={1140} height={640} alt="seciton03" />
+                            <Image
+                                src={"/images/section03.jpg"}
+                                width={1140}
+                                height={640}
+                                style={{ width: "100%", height: "auto" }}
+                                alt="seciton03"
+                            />
                         </div>
                     </section>
                     <section className={styles.seciton}>
                         <div className={styles.imagewrap}>
-                            <Image src={"/images/section04.jpg"} width={1140} height={640} alt="seciton04" />
+                            <Image
+                                src={"/images/section04.jpg"}
+                                width={1140}
+                                height={640}
+                                style={{ width: "100%", height: "auto" }}
+                                alt="seciton04"
+                            />
                         </div>
                     </section>
                 </div>
