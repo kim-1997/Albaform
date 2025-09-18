@@ -1,0 +1,40 @@
+@import "../../app/font.scss";
+
+.form {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+}
+.inputBox {
+    & + .inputBox {
+        margin-top: 32px;
+    }
+}
+.inputBox {
+    label {
+        margin-bottom: 16px;
+        @include text_xl(400);
+        color: var(--black-400);
+    }
+}
+
+.inputBox {
+    input {
+        width: 100%;
+        padding: 16px 14px;
+        border-radius: 8px;
+        border: 1px solid #c4c4c4;
+        outline: none;
+        @include text_xl(400);
+        color: var(--black-400);
+    }
+}
+.inputBox input {
+    &:focus {
+        border: 1px solid var(--orange-300);
+    }
+}

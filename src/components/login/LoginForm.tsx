@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Button from "../button/Button";
-import styles from "./LoginForm.module.css";
+import styles from "./LoginForm.module.scss";
 import { useState } from "react";
 import Input from "../input/Input";
 import { SignIn, SigninFormProps } from "@/lib/types/signin";
@@ -21,20 +21,28 @@ export default function LoginForm({ onSubmit, role }: SigninFormProps) {
     return (
         <div className={styles.wrap}>
             <div className={styles.login}>
-                <h2 className={styles.title}>{role === "APPLICANT" ? "지원자 로그인" : "사장님 로그인"}</h2>
+                <h2 className={styles.title}>
+                    {role === "APPLICANT" ? "지원자 로그인" : "사장님 로그인"}
+                </h2>
                 <div className={styles.info}>
                     <p className={styles.signup}>
                         {role === "APPLICANT" ? (
                             <>
                                 아직 계정이 없으신가요?
-                                <Link href="/signup/applicant" className={styles.signupLink}>
+                                <Link
+                                    href="/signup/applicant"
+                                    className={styles.signupLink}
+                                >
                                     회원가입 하기
                                 </Link>
                             </>
                         ) : (
                             <>
                                 사장님 계정이 없으신가요?
-                                <Link href="/signup/owner" className={styles.signupLink}>
+                                <Link
+                                    href="/signup/owner"
+                                    className={styles.signupLink}
+                                >
                                     회원가입 하기
                                 </Link>
                             </>
@@ -70,9 +78,17 @@ export default function LoginForm({ onSubmit, role }: SigninFormProps) {
                 />
 
                 {role === "APPLICANT" ? (
-                    <Button text="지원자 로그인" type="submit" />
+                    <Button
+                        text="지원자 로그인"
+                        type="submit"
+                        className={styles.signBtn}
+                    />
                 ) : (
-                    <Button text="사장님 로그인" type="submit" />
+                    <Button
+                        text="사장님 로그인"
+                        type="submit"
+                        className={styles.signBtn}
+                    />
                 )}
             </form>
         </div>

@@ -1,3 +1,5 @@
+@import "../../app/font.scss";
+
 .wrap {
     width: 100%;
     min-height: calc(100vh - 88px);
@@ -6,7 +8,7 @@
     display: inline-block;
     width: 100%;
     min-height: 1092px;
-    background-color: #1f1f1f;
+    background-color: var(--black-400);
     background-image: url("/images/keyvisual.png");
     background-position: bottom center;
     background-repeat: no-repeat;
@@ -18,25 +20,25 @@
     align-items: center;
     padding: 0 20px;
 }
-.keyvisiualInner h2 {
-    color: #fff;
-    font-size: 56px;
-    margin-top: 32px;
-    font-weight: 500;
-    text-align: center;
+.keyvisiualInner {
+    h2 {
+        color: var(--gray-50);
+        font-size: 56px;
+        margin-top: 2rem;
+        font-weight: 500;
+        text-align: center;
+    }
 }
 .startBtn {
     border: none;
     outline: none;
     padding: 0 50px;
-    height: 80px;
+    margin-top: 40px;
     border-radius: 100px;
     background-color: #2a2c3d;
-    font-size: 24px;
-    color: #fff;
-    font-weight: 700;
-    margin-top: 40px;
     cursor: pointer;
+    @include text_2xl(700);
+    color: var(--gray-50);
 }
 .sections {
     position: relative;
@@ -53,8 +55,12 @@
     padding: 0 20px;
     margin: 0 auto;
 }
-.sectionsInner section + section {
-    margin-top: 240px;
+.sectionsInner {
+    section {
+        & + section {
+            margin-top: 240px;
+        }
+    }
 }
 
 .imagewrap {
@@ -62,8 +68,14 @@
     border-radius: 22px;
     overflow: hidden;
 }
-.imagewrap :global(img) {
-    display: block;
+.sectionImg {
+    width: 100%;
+    height: auto;
+}
+.imagewrap {
+    :global(img) {
+        display: block;
+    }
 }
 
 .bottom {
@@ -71,6 +83,8 @@
     text-align: center;
     margin-top: 260px;
 }
-.bottom h3 {
-    font-size: 48px;
+.bottom {
+    h3 {
+        font-size: 48px;
+    }
 }

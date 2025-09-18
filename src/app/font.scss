@@ -1,0 +1,52 @@
+// Regular 400
+// Medium 500
+// SemiBold 600
+// Bold 700
+
+@mixin text_3xl($weight) {
+    font-size: 2rem;
+    line-height: 2.625rem;
+    font-weight: $weight;
+}
+
+@mixin text_2xl($weight) {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: $weight;
+}
+@mixin text_xl($weight) {
+    font-size: 1.25rem;
+    line-height: 2rem;
+    font-weight: $weight;
+}
+@mixin text_2lg($weight) {
+    font-size: 1.125rem;
+    line-height: 1.625rem;
+    font-weight: $weight;
+}
+@mixin text_lg($weight) {
+    font-size: 1rem;
+    line-height: 1.625rem;
+    font-weight: $weight;
+}
+@mixin text_md($weight) {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    font-weight: $weight;
+}
+@mixin text_sm($weight) {
+    font-size: 0.8125rem;
+    line-height: 1.375rem;
+    font-weight: $weight;
+}
+
+@mixin text_xs($weight) {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    font-weight: $weight;
+}
+@mixin text_xs-semibold() {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+}

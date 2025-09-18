@@ -1,0 +1,70 @@
+@import "../../app/font.scss";
+
+.wrap {
+    min-height: calc(100vh - 88px);
+    padding: 100px 0;
+    margin-top: 88px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.signupform {
+    text-align: center;
+}
+.title {
+    @include text_3xl(600);
+    color: var(--black-500);
+}
+.info {
+    margin-top: 32px;
+}
+.info {
+    p {
+        @include text_xl(400);
+        color: var(--black-100);
+    }
+}
+.info p {
+    & + p {
+        margin-top: 5px;
+    }
+}
+.signupLink {
+    margin-left: 5px;
+    text-decoration: underline;
+    @include text_xl(700);
+    color: var(--black-400);
+}
+
+.form {
+    max-width: 640px;
+    width: 100%;
+    margin: 40px auto 0 auto;
+}
+.profile {
+    width: 120px;
+    height: 120px;
+    margin: 20px auto 0 auto;
+    cursor: pointer;
+    border-radius: 50%;
+    position: relative;
+}
+// .dim {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     width: 100px;
+//     height: 100px;
+//     background-color: rgba(0, 0, 0, 0.1);
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     color: #fff;
+//     font-size: 14px;
+//     border-radius: 50%;
+// }
+.signBtn {
+    margin-top: 50px;
+}

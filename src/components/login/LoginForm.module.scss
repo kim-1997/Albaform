@@ -1,3 +1,5 @@
+@import "../../app/font.scss";
+
 .wrap {
     min-height: calc(100vh - 88px);
     padding: 100px 0;
@@ -11,25 +13,38 @@
     text-align: center;
 }
 .title {
-    font-size: 32px;
+    @include text_3xl(600);
+    color: var(--black-500);
 }
 .info {
     margin-top: 32px;
 }
-.info p {
-    font-size: 20px;
+.info {
+    p {
+        @include text_xl(400);
+        color: var(--black-100);
+    }
 }
-.info p + p {
-    margin-top: 5px;
+.info {
+    p {
+        & + p {
+            margin-top: 5px;
+        }
+    }
 }
 .signupLink {
     margin-left: 5px;
-    font-weight: bold;
     text-decoration: underline;
+    @include text_xl(700);
+    color: var(--black-400);
 }
 
 .form {
     max-width: 640px;
     width: 100%;
     margin: 64px auto 0 auto;
+}
+
+.signBtn {
+    margin-top: 50px;
 }

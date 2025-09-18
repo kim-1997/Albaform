@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Button from "../button/Button";
-import styles from "./SignupForm.module.css";
+import styles from "./SignupForm.module.scss";
 import { useRef, useState } from "react";
 import Input from "../input/Input";
 import { SignUp, SignupFormProps } from "@/lib/types/signup";
@@ -32,7 +32,8 @@ export default function SignupForm({ onSubmit, role }: SignupFormProps) {
     };
 
     const handleNext = () => {
-        if (!form.email || !form.password) return alert("이메일/비밀번호를 입력하세요");
+        if (!form.email || !form.password)
+            return alert("이메일/비밀번호를 입력하세요");
         if (form.password !== form.passwordConfirm) {
             alert("비밀번호가 일치하지 않습니다.");
             return;
@@ -78,16 +79,27 @@ export default function SignupForm({ onSubmit, role }: SignupFormProps) {
         <div className={styles.wrap}>
             <div className={styles.signupform}>
                 <h2 className={styles.title}>
-                    {role === "APPLICANT" && step === "account" && "지원자 회원가입"}
-                    {role === "APPLICANT" && step === "details" && "지원자 추가정보"}
-                    {role === "OWNER" && step === "account" && "사장님 회원가입"}
-                    {role === "OWNER" && step === "details" && "사장님 추가정보"}
+                    {role === "APPLICANT" &&
+                        step === "account" &&
+                        "지원자 회원가입"}
+                    {role === "APPLICANT" &&
+                        step === "details" &&
+                        "지원자 추가정보"}
+                    {role === "OWNER" &&
+                        step === "account" &&
+                        "사장님 회원가입"}
+                    {role === "OWNER" &&
+                        step === "details" &&
+                        "사장님 추가정보"}
                 </h2>
                 <div className={styles.info}>
                     {role === "APPLICANT" && step === "account" && (
                         <p className={styles.signup}>
                             이미 계정이 있으신가요?
-                            <Link href="/signin/applicant" className={styles.signupLink}>
+                            <Link
+                                href="/signin/applicant"
+                                className={styles.signupLink}
+                            >
                                 로그인 하기
                             </Link>
                         </p>
@@ -95,17 +107,24 @@ export default function SignupForm({ onSubmit, role }: SignupFormProps) {
                     {role === "OWNER" && step === "account" && (
                         <p className={styles.signup}>
                             이미 사장님 계정이 있으신가요?
-                            <Link href="/signin/owner" className={styles.signupLink}>
+                            <Link
+                                href="/signin/owner"
+                                className={styles.signupLink}
+                            >
                                 로그인 하기
                             </Link>
                         </p>
                     )}
-                    {(role === "OWNER" || role === "APPLICANT") && step === "details" && (
-                        <>
-                            <p className={styles.signup}>추가 정보를 입력하여 회원가입을 완료해주세요.</p>
+                    {(role === "OWNER" || role === "APPLICANT") &&
+                        step === "details" && (
+                            <>
+                                <p className={styles.signup}>
+                                    추가 정보를 입력하여 회원가입을
+                                    완료해주세요.
+                                </p>
 
-                            {/* 프로필 수정 페이지로 이동 */}
-                            {/* <div className={styles.profile} onClick={handleProfileClick}>
+                                {/* 프로필 수정 페이지로 이동 */}
+                                {/* <div className={styles.profile} onClick={handleProfileClick}>
                                 <Image
                                     src={encodeURI(profileUrl)}
                                     width={120}
@@ -123,8 +142,8 @@ export default function SignupForm({ onSubmit, role }: SignupFormProps) {
                                 style={{ display: "none" }}
                                 onChange={handleFileChange}
                             /> */}
-                        </>
-                    )}
+                            </>
+                        )}
 
                     <p className={styles.roleNotice}>
                         {role === "APPLICANT" &&
@@ -168,7 +187,12 @@ export default function SignupForm({ onSubmit, role }: SignupFormProps) {
                             onChange={handleChange}
                         />
 
-                        <Button text="다음" type="button" onClick={handleNext} />
+                        <Button
+                            text="다음"
+                            type="button"
+                            onClick={handleNext}
+                            className={styles.signBtn}
+                        />
                     </div>
                 )}
 
@@ -201,7 +225,11 @@ export default function SignupForm({ onSubmit, role }: SignupFormProps) {
                             value={form.nickname}
                             onChange={handleChange}
                         />
-                        <Button text="시작하기" type="submit" />
+                        <Button
+                            text="시작하기"
+                            type="submit"
+                            className={styles.signBtn}
+                        />
                     </div>
                 )}
                 {step === "details" && role === "OWNER" && (
@@ -251,7 +279,11 @@ export default function SignupForm({ onSubmit, role }: SignupFormProps) {
                             value={form.location}
                             onChange={handleChange}
                         />
-                        <Button text="시작하기" type="submit" />
+                        <Button
+                            text="시작하기"
+                            type="submit"
+                            className={styles.signBtn}
+                        />
                     </div>
                 )}
             </form>

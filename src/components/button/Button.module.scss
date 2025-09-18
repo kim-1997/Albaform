@@ -1,0 +1,15 @@
+@import "../../app/font.scss";
+
+.btn {
+    outline: none;
+    cursor: pointer;
+}
+.btn {
+    &:disabled {
+        background-color: #dedede !important;
+        cursor: not-allowed;
+    }
+}
+.btnText {
+    @include text_xl(600);
+}
