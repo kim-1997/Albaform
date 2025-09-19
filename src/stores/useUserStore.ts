@@ -16,8 +16,14 @@ export const useUserStore = create<UserStore>()(
             user: null,
             accessToken: null,
             refreshToken: null,
-            setUser: (user, accessToken, refreshToken) => set({ user, accessToken, refreshToken }),
-            logout: () => set({ user: null, accessToken: null, refreshToken: null }),
+            setUser: (user, accessToken, refreshToken) =>
+                set({ user, accessToken, refreshToken }),
+            logout: () => {
+                set({ user: null, accessToken: null, refreshToken: null });
+                useUserStore.persist.clearStorage();
+                localStorage.removeItem("accessToken");
+                localStorage.removeItem("refreshToken");
+            },
         }),
         {
             name: "user-storage",

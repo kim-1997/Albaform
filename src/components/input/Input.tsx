@@ -17,7 +17,7 @@ type InputWithoutLabel = {
     hasLabel: false;
     labelText?: never;
     placeholder: string;
-    name: string;
+    name?: string;
     id?: string;
     type: string;
     value: string | undefined;

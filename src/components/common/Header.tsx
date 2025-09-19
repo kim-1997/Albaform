@@ -82,7 +82,7 @@ export default function Header() {
                         {user ? (
                             <div className={styles.userInfo}>
                                 <div>
-                                    {role === "APPLICANT"
+                                    {user.role === "APPLICANT"
                                         ? `${user.nickname} 지원자님`
                                         : `${user.nickname} 사장님`}
                                 </div>
